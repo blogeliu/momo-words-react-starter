@@ -43,3 +43,10 @@ export function getAllDecks() {
   const state = ensureSampleData();
   return state.decks;
 }
+export function deleteDeck(deckId) {
+  const state = ensureSampleData();
+  const decks = state.decks.filter(d => d.id !== deckId);
+  saveState({ decks });              // keep the same shape { decks: [...] }
+  return decks;
+}
+
